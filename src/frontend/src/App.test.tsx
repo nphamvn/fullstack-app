@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import App from "./App";
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 describe("Simple working test", () => {
   it("the title is visible", () => {
