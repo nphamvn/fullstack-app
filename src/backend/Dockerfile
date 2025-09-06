@@ -4,12 +4,11 @@ WORKDIR /src
 
 # Copy solution & restore
 COPY *.sln .
-COPY Playground/*.csproj ./Playground/
+COPY Playground.csproj Playground.csproj
 RUN dotnet restore
 
 # Copy source & publish
 COPY . .
-WORKDIR /src/Playground
 RUN dotnet publish -c Release -o /app/publish
 
 # Stage 2: Runtime
