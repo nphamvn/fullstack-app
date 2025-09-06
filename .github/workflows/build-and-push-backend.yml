@@ -1,7 +1,7 @@
 on:
   push:
     branches: ["main"]
-    paths: ["src/backend/**"]
+    paths: ["src/backend/**", ".github/workflows/build-and-push-backend.yml"]
 
 jobs:
   build:
@@ -48,8 +48,9 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.18.0
+        working-directory: ./src/backend
         with:
-          context: ./src/backend
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
