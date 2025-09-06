@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests
         working-directory: ./src/frontend
-        run: npm test -- --watchAll=false
+        run: npm test
 
   docker:
     runs-on: ubuntu-latest
