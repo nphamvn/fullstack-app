@@ -9,3 +9,10 @@ resource "aws_eks_addon" "fullstack_app_kubeproxy" {
   addon_name    = "kube-proxy"
   addon_version = "v1.33.3-eksbuild.6"
 }
+
+resource "aws_eks_addon" "fullstack_app_coredns" {
+  cluster_name  = aws_eks_cluster.fullstack_app.name
+  addon_name    = "coredns"
+  addon_version = "v1.12.3-eksbuild.1"
+}
+
