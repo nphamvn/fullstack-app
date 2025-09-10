@@ -1,4 +1,11 @@
 terraform {
+  backend "s3" {
+    bucket         = "nphamvn-terraform-state-bucket"
+    key            = "fullstack_app/terraform.tfstate"
+    region         = "ap-northeast-1"
+    profile        = "default"
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"

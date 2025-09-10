@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  app: backend
+spec:
+  containers:
+    - image: nphamvn/demo-app-backend:main
+      name: backend
+      ports:
+        - containerPort: 8080
+      resources:
