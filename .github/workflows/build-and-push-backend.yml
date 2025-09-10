@@ -2,6 +2,7 @@ on:
   push:
     branches: ["main"]
     paths: ["src/backend/**", ".github/workflows/build-and-push-backend.yml"]
+    tags: ["v*.*.*"]
 
 jobs:
   build:
@@ -45,6 +46,10 @@ jobs:
         uses: docker/metadata-action@v5.8.0
         with:
           images: ${{ vars.DOCKERHUB_USERNAME }}/demo-app-backend
+          tags: |
+            type=semver,pattern={{version}} # Uses Git tags like v1.0.0
+            type=sha,format=long # Uses long commit SHA
+            type=ref,event=branch # Uses branch name
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.18.0
