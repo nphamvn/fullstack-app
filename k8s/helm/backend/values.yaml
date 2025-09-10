@@ -1,0 +1,5 @@
+image:
+  repository: nphamvn/demo-app-backend
+  tag: "main"
+service:
+  port: 8080
